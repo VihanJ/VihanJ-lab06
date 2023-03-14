@@ -1,5 +1,5 @@
 // usestack.cpp - for CS 24 lab practice using stacks
-// NAME(S), DATE
+// Vihan Jayaraman, 3/13
 
 #include "intstack.h"
 #include <iostream>
@@ -8,6 +8,12 @@ using namespace std;
 int main() {
     Stack s;
 
+    s.push(10);
+    s.push(20);
+    s.push(10);
+    s.push(20);
+    s.push(10);
+    s.push(20);
     s.push(10);
     s.push(20);
 

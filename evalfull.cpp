@@ -1,5 +1,5 @@
 // evalfull.cpp - evaluates a fully-parenthesized expression
-// NAME(S), DATE
+// Vihan Jayaraman, 3/13
 
 #include <cstdlib>   // for atof function
 #include <cstdio>    // for sscanf
@@ -26,8 +26,30 @@ bool balanced(char *expression[], int numTokens) {
                       // all of the same operations as the stack from
                       // Step 2 of this lab, but it won't get full
                       // and it can store any type - <char *> here
+    bool balanced = false;
 
-    return false; // REPLACE THIS return WITH ACTUAL IMPLEMENTATION
+    for (int i = 0; i<numTokens;i++) {
+        //CHECK FOR FULL PARENTHIZATION
+        if (strcmp(expression[0],"(")==1 || strcmp(expression[numTokens-1],")")==1)
+            return false;
+
+
+        if (strcmp(expression[i],"(") == 0) {
+            s.push("(");
+            cout << "(";
+        }
+        //check for unbalanced parenthization
+        if (strcmp(expression[i],")") == 0) {
+            cout << ")";
+            if (!s.empty())
+                s.pop();
+                balanced=true;
+        }
+    }
+    if (!s.empty()) {
+        return false;
+    }
+    return balanced;
 }
 
 // DO NOT CHANGE ANYTHING BELOW - BUT DO READ IT
