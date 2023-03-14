@@ -41,9 +41,12 @@ bool balanced(char *expression[], int numTokens) {
         //check for unbalanced parenthization
         if (strcmp(expression[i],")") == 0) {
             //cout << ")";
-            if (!s.empty()) {
+            if (s.empty()) {
+                return false;
+                //cout << s.top();
+            } else {
                 s.pop();
-                balanced=true;
+                balanced = true;
             }
         }
     }
@@ -91,7 +94,7 @@ double evalFull(char *expression[], int numTokens) {
 
     for (int i=0; i<numTokens; i++) {
         type = identify(expression[i]);
-        cout << expression[i];
+        //cout << expression[i];
         switch(type) {
             case NUMBER:
                 numbers.push( atof(expression[i]) );
