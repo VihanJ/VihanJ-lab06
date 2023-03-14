@@ -30,20 +30,21 @@ bool balanced(char *expression[], int numTokens) {
 
     for (int i = 0; i<numTokens;i++) {
         //CHECK FOR FULL PARENTHIZATION
-        if (strcmp(expression[0],"(")==1 || strcmp(expression[numTokens-1],")")==1)
+        if (strcmp(expression[0],"(")==1 || strcmp(expression[numTokens-1],")")==1) {
             return false;
-
+        }
 
         if (strcmp(expression[i],"(") == 0) {
-            s.push("(");
-            cout << "(";
+            s.push(expression[i]);
+            //cout << "(";
         }
         //check for unbalanced parenthization
         if (strcmp(expression[i],")") == 0) {
-            cout << ")";
-            if (!s.empty())
+            //cout << ")";
+            if (!s.empty()) {
                 s.pop();
                 balanced=true;
+            }
         }
     }
     if (!s.empty()) {
