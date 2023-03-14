@@ -91,6 +91,7 @@ double evalFull(char *expression[], int numTokens) {
 
     for (int i=0; i<numTokens; i++) {
         type = identify(expression[i]);
+        cout << expression[i];
         switch(type) {
             case NUMBER:
                 numbers.push( atof(expression[i]) );
